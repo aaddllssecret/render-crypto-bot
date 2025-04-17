@@ -1,4 +1,3 @@
-
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
@@ -25,8 +24,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
     logger.info(f"Button pressed: {query.data} by user {query.from_user.id}")
     if query.data == "confirm_payment":
-        await query.message.reply_text(f"Спасибо за оплату! Вот ваша ссылка в канал:
-{CHANNEL_INVITE_LINK}")
+        await query.message.reply_text(f"Спасибо за оплату! Вот ваша ссылка в канал:\n{CHANNEL_INVITE_LINK}")
 
 def main():
     app = Application.builder().token(TOKEN).build()
